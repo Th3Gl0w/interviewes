@@ -7,6 +7,7 @@ import "./App.css";
 import { AppProvider, useAppContext } from "./contexts/AppContext";
 import TokenHandler from "./scopes/TokenHandler/TokenHandler";
 import Trade from "./scopes/Trade/Trade";
+import TestComponent from "./scopes/TestComponent";
 
 // The famous nullable boolean we inherited from Java
 type nullableBoolean = boolean | null;
@@ -34,11 +35,12 @@ function App() {
       <Router>
         <Switch>
           <Route path="/login" component={Login}></Route>
-          {token && (
+          {/* {token && (
             <>
               <Route path="/trade" component={Trade}></Route>
             </>
-          )}
+          )} */}
+          <Route path="/test_component" component={TestComponent}></Route>
           <Route path="*" exact>
             <h1>
               API:
@@ -50,7 +52,7 @@ function App() {
             </Link>
           </Route>
         </Switch>
-        <Route path="*" component={TokenHandler}></Route>
+        {/* <Route path="*" component={TokenHandler}></Route> */}
       </Router>
     </div>
   );

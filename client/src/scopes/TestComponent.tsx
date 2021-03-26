@@ -1,4 +1,3 @@
-import { formatWithCursor } from "prettier";
 import React, {
   ChangeEvent,
   FC,
@@ -8,11 +7,11 @@ import React, {
   useState,
 } from "react";
 
-import "./Trade.css";
+import "./Trade/Trade.css";
 
-import { AllOrder, Order } from "../../utils/Interfaces";
+import { AllOrder, Order } from "../utils/Interfaces";
 
-const Trade: FC = () => {
+const TestComponent: FC = () => {
   const token = localStorage.getItem("token");
   console.log(token);
   const [order, setOrder] = useState<Order>({
@@ -104,4 +103,4 @@ const Trade: FC = () => {
   );
 };
 
-export default Trade;
+export default TestComponent;
