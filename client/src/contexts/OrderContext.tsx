@@ -114,6 +114,23 @@ const OrderProvider: FC<AllOrder> = (props: PropsWithChildren<AllOrder>) => {
     getOrders();
   };
 
+  const deleteOrder = async (id: number): Promise<void> => {
+    try {
+      const res = await fetch(`http://localhost:4242/orders/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const data = await res.json();
+      console.log(data);
+      getOrders();
+    } catch (err) {
+      throw new Error(err);
+    }
+  };
   const checkExpiration = useCallback(async (): Promise<void> => {
     allOrders &&
       allOrders.map(async (e) => {
@@ -163,6 +180,7 @@ const OrderProvider: FC<AllOrder> = (props: PropsWithChildren<AllOrder>) => {
         checkExpiration,
         getModify,
         addOrder,
+        deleteOrder,
       }}
     >
       {props.children}

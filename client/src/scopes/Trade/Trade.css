@@ -2,30 +2,40 @@
   display: flex;
   margin: 1rem;
   padding: 1rem;
-  background-color: white;
+  background-color: #16161e;
   height: 100%;
+  color: white;
 }
 
 .table {
   flex: 2;
   padding: 0 1rem;
-  /* border-right: 0.5px solid #777; */
-  border-collapse: collapse;
+  border-right: 0.5px solid #3c4a67;
+  /* border-collapse: collapse; */
 }
 
 .control {
   display: flex;
   justify-content: space-between;
 }
+.modif_button button {
+  border: none;
+  background-color: transparent;
+}
 
 .stats {
   flex: 1;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: flex-start;
   min-height: 100px;
   margin: 0 1rem;
-  background-color: rgba(200, 100, 100, 0.3);
+  padding-left: 2rem;
+  background-color: #13131b;
 }
 
-table {
+/* table {
   width: 100%;
   margin-top: 1rem;
   border: 0.5px #777 solid;
@@ -38,4 +48,34 @@ tr > td {
 thead > tr > th:not(:last-child),
 tr > td:not(:last-child) {
   border-right: 0.5px #777 solid;
+} */
+table {
+  background: #13131b;
+  border-radius: 0.25rem;
+  border-collapse: collapse;
+  margin: 1rem;
+  width: 95%;
+}
+th {
+  border-bottom: 1px solid #3c4a67;
+  color: #6c718e;
+  font-size: 0.85em;
+  font-weight: 700;
+  padding: 0.5rem 1rem 1rem;
+  text-align: left;
+  text-transform: uppercase;
+}
+td {
+  color: #fff;
+  font-weight: 400;
+  padding: 0.65em 1em;
+}
+tbody tr {
+  transition: background 0.25s ease;
+}
+tbody tr:hover {
+  background-color: rgba(11, 11, 15, 0.3);
+}
+button:focus {
+  outline: none;
 }

@@ -9,6 +9,8 @@ import React, {
 } from "react";
 import { Bar } from "react-chartjs-2";
 import "./Trade.css";
+import modif from "../../assets/modif.svg";
+import deletesvg from "../../assets/deletesvg.svg";
 import { useOrderContext } from "../../contexts/OrderContext";
 const Trade: FC = () => {
   const [isModified, setIsModified] = useState<boolean>(false);
@@ -24,6 +26,7 @@ const Trade: FC = () => {
     checkExpiration,
     getModify,
     addOrder,
+    deleteOrder,
   } = useOrderContext();
 
   useEffect(() => {
@@ -43,8 +46,6 @@ const Trade: FC = () => {
       );
     }
   }
-
-  //TODO :
 
   //Add all user orders
   let priceUser;
@@ -113,9 +114,12 @@ const Trade: FC = () => {
                 <td>{element.price}$</td>
                 <td>{element.expirationDate}</td>
                 {!isModified ? (
-                  <td>
+                  <td className="modif_button">
                     <button onClick={() => setIsModified(!isModified)}>
-                      Modify
+                      <img src={modif} alt="modif" />
+                    </button>
+                    <button onClick={() => deleteOrder(element.id)}>
+                      <img src={deletesvg} alt="delete" />
                     </button>
                   </td>
                 ) : (
@@ -176,7 +180,7 @@ const Trade: FC = () => {
       <div className="table">
         <div className="control">
           <label htmlFor="price">
-            Price
+            Price : {"  "}
             <input
               type="number"
               name="price"
