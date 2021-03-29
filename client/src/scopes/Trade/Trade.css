@@ -79,3 +79,13 @@ tbody tr:hover {
 button:focus {
   outline: none;
 }
+input {
+  background: none;
+  border: none;
+  border-bottom: #ff1051 solid 2px;
+  color: #fff;
+}
+input:focus {
+  background: none;
+  outline: none;
+}
