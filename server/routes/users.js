@@ -6,7 +6,7 @@ const auth = require('../middleware/authmiddleware')
 
 router.get('/', async (req, res) => {
 
-    const allUsers = await User.findAll({})
+    const allUsers = await User.findAll({include : 'orders'})
     res.json(allUsers)
 })
 

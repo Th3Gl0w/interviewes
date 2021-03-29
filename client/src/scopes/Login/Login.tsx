@@ -22,7 +22,8 @@ const Login: FC = () => {
       [e.target.name]: e.target.value,
     });
   };
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -35,7 +36,8 @@ const Login: FC = () => {
     const data = await response.json();
     console.log(data);
     await localStorage.setItem("token", data.token);
-    history.push(`/test_component?token=test`);
+    const token = localStorage.getItem("token");
+    history.push(`/trade?token=${token}`);
   };
   console.log(userInfo);
   console.log(localStorage.getItem("token"));

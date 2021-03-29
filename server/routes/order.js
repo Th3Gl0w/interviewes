@@ -66,6 +66,28 @@ router.put('/:id', auth, async (req, res) => {
         message: "Order has been sucessfully updated"
     })
 })
+router.delete('/:id', auth, async(req, res) => {
+    const { id } = req.params
+    const order = await Order.findOne({
+        where: {
+            id
+        }
+    })
+    if (!order) return res.status(400).json({ msg: "Order Not Found" });
+    if (order.userId !== req.user.id) return res.status(401).json({ msg: "Not Authorized" });
 
+    try {
+        await Order.destroy({
+            where : {
+                id
+            }
+        })
+    }catch(err){
+        throw new Error(err)
+    }
+    res.json({
+        message: "Order has been successfully deleted"
+    })
+})
 
 module.exports = router

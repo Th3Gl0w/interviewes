@@ -5,16 +5,16 @@ import Login from "./scopes/Login/Login";
 
 import "./App.css";
 import { AppProvider, useAppContext } from "./contexts/AppContext";
+import { OrderProvider, useOrderContext } from "./contexts/OrderContext";
 import TokenHandler from "./scopes/TokenHandler/TokenHandler";
 import Trade from "./scopes/Trade/Trade";
-import TestComponent from "./scopes/TestComponent";
 
 // The famous nullable boolean we inherited from Java
 type nullableBoolean = boolean | null;
 
 function App() {
   const [connected, setConnected] = useState<nullableBoolean>(null);
-  const { token, setToken } = useAppContext();
+  const { token } = useAppContext();
 
   useEffect(() => {
     fetch("http://localhost:4242/hello")
@@ -40,7 +40,7 @@ function App() {
               <Route path="/trade" component={Trade}></Route>
             </>
           )} */}
-          <Route path="/test_component" component={TestComponent}></Route>
+          <Route path="/Trade" component={Trade}></Route>
           <Route path="*" exact>
             <h1>
               API:
@@ -59,7 +59,9 @@ function App() {
 }
 const WrappedApp = () => (
   <AppProvider>
-    <App />
+    <OrderProvider>
+      <App />
+    </OrderProvider>
   </AppProvider>
 );
 

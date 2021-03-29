@@ -9,7 +9,8 @@
 .table {
   flex: 2;
   padding: 0 1rem;
-  border-right: 0.5px solid #777;
+  /* border-right: 0.5px solid #777; */
+  border-collapse: collapse;
 }
 
 .control {

@@ -1,9 +1,10 @@
 export interface User {
-    id: number;
-    username: string;
-    password: string;
-    createdAt: Date;
-    updatedAt: Date;
+    id?: number;
+    username?: string;
+    password?: string;
+    createdAt?: Date;
+    updatedAt?: Date;
+    orders?: AllOrder[]
   }
   
   export interface AllOrder {
@@ -18,3 +19,5 @@ export interface User {
   export interface Order {
     price: number;
   }
+
+  
