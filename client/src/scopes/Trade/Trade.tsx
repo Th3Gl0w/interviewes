@@ -103,7 +103,6 @@ const Trade: FC = () => {
     };
   });
   console.log(totalPriceByDate);
-
   const listOrders =
     allOrders && singleUser
       ? allOrders.map((element, index) => {
@@ -189,7 +188,7 @@ const Trade: FC = () => {
               }
             ></input>
           </label>
-          <button onClick={addOrder}>{`Ajouter une option d'achat`}</button>
+          <button onClick={addOrder}>{`Add order`}</button>
         </div>
         <table>
           <thead>

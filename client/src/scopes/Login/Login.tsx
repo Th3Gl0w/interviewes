@@ -24,7 +24,6 @@ const Login: FC = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    localStorage.removeItem("token");
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
